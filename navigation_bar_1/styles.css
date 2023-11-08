@@ -55,6 +55,7 @@ li {
 .navigation ul li.active a .icon {
     opacity: 1;
     color: #209cff;
+    transform: translateY(-8px)
 }
 .indicator {
     position: absolute;
@@ -75,7 +76,7 @@ li {
     height: 20px;
     left: -20px;
     top: 10px;
-    border-top-right-radius: 35px;
+    border-top-right-radius: 20px;
     box-shadow: 4px -6px 0 2px var(--clr);
 }
 .indicator::after {
@@ -86,7 +87,7 @@ li {
     height: 20px;
     right: -20px;
     top: 10px;
-    border-top-left-radius: 35px;
+    border-top-left-radius: 20px;
     box-shadow: -4px -6px 0 2px var(--clr);
 }
 
@@ -101,4 +102,15 @@ li {
 }
 .navigation ul li:nth-child(5).active ~ .indicator{
     transform: translateX(calc(70px * 4));
+}
+
+
+.indicator span {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    border: 4px solid #209cff;
+    border-radius: 50%;
+    left: 4.5px;
+    scale: 0.9;
 }
