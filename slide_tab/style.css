@@ -5,6 +5,7 @@ body {
     min-height: 100vh;
     font-family: Helvetica;
     background-color: #e2e8f0;
+    flex-direction: column;
 }
 
 :root {
@@ -24,9 +25,9 @@ nav {
 nav::after {
     content: ''; /*设置content才会显示after和before*/
     display: block;
-    width: var(--nav-item-width);
+    width: calc(var(--nav-item-width) - var(--nav-item-padding));
     height: calc(var(--nav-item-height) + var(--nav-item-padding));
-    margin: calc(var(--nav-item-padding) / 2);
+    margin: calc(var(--nav-item-padding) / 2) var(--nav-item-padding);
     position: absolute;
     border-radius: calc(infinity * 1px);
     background-color: #cbd1d8;
@@ -47,6 +48,23 @@ nav ul {
 
 nav ul li {
     font-size: 1.3rem;
-    width: var(--nav-item-width);
+    width: calc(var(--nav-item-width) - var(--nav-item-padding));
     text-align: center;
+}
+
+#nav-home:checked ~ nav::after {
+    transform: translateX(calc((var(--nav-item-width) - var(--nav-item-padding)) * 0));
+    transition: transform .4s ease-in-out;
+}
+#nav-products:checked ~ nav::after {
+    transform: translateX(calc((var(--nav-item-width) - var(--nav-item-padding)) * 1));
+    transition: transform .4s ease-in-out;
+}
+#nav-about:checked ~ nav::after {
+    transform: translateX(calc((var(--nav-item-width) - var(--nav-item-padding)) * 2));
+    transition: transform .4s ease-in-out;
+}
+#nav-contact:checked ~ nav::after {
+    transform: translateX(calc((var(--nav-item-width) - var(--nav-item-padding)) * 3));
+    transition: transform .4s ease-in-out;
 }
