@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Helvetica;
+    background-color: #e2e8f0;
+}
+
+:root {
+    font-size: 16px;
+    --nav-item-width: 9rem;
+    --nav-item-height: 2rem;
+    --nav-item-padding: 1rem; 
+}
+
+nav {
+    background-color: #fff;
+    padding: var(--nav-item-padding);
+    border-radius: var(--nav-item-height);
+    position: relative;
+}
+
+nav::after {
+    content: ''; /*设置content才会显示after和before*/
+    display: block;
+    width: var(--nav-item-width);
+    height: calc(var(--nav-item-height) + var(--nav-item-padding));
+    margin: calc(var(--nav-item-padding) / 2);
+    position: absolute;
+    border-radius: calc(infinity * 1px);
+    background-color: #cbd1d8;
+    top: 0;
+    left: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: var(--nav-item-height);
+    z-index: 10;
+    position: relative;
+}
+
+nav ul li {
+    font-size: 1.3rem;
+    width: var(--nav-item-width);
+    text-align: center;
+}
