@@ -1,0 +1,46 @@
+#container {
+    position: absolute;
+    display: inline-block
+}
+
+.resize {
+    content: '';
+    width: 80px;
+    height: 80px;
+    resize: both;
+    /* border: 5px solid deeppink; */
+    overflow: hidden;
+    position: relative;
+    z-index: 999;
+}
+.resize::-webkit-resizer {
+    background-color: transparent;
+}
+
+.text {
+    box-sizing: border-box;
+    width: 200px;
+    height: 250px;
+    background-color: darkkhaki;
+    position: absolute;
+    right: -190px;
+    bottom: -240px;
+    &::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background-color: deeppink;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+    }
+}
+/* .text::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: deeppink;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+} */
