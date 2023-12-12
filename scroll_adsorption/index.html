@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css滚动吸附</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content {
+            width: calc(var(--nav-item-width) * 4);
+            width: 400px;
+            height: 400px;
+            margin-top: var(--nav-item-height);
+            background-color: #fff;
+            border-radius: var(--nav-item-padding);
+            overflow-x: scroll;
+            overflow-y: hidden;
+            display: flex;
+            scroll-snap-type: x mandatory; /*x方向 强制吸附*/
+        }
+
+        .content::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .content div {
+            background-color: #000;
+            width: calc(var(--nav-item-width) * 4);
+            height: 100%;
+            width: 200px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start; /* 吸附到顶部*/
+            scroll-snap-stop: always; /* 始终吸附*/
+        }
+
+        .content div:nth-child(1) {
+            background-color: pink;
+        }
+
+        .content div:nth-child(2) {
+            background-color: #457ec9;
+        }
+
+        .content div:nth-child(3) {
+            background-color: #40bc1a;
+        }
+
+        .content div:nth-child(4) {
+            background-color: #f8e554;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div>
+            <h1>1</h1>
+        </div>
+        <div>
+            <h1>2</h1>
+        </div>
+        <div>
+            <h1>3</h1>
+        </div>
+        <div>
+            <h1>4</h1>
+        </div>
+    </div>
+</body>
+
+</html>
