@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="list">
+        <div draggable="true" class="list-item">1</div>
+        <div draggable="true" class="list-item">2</div>
+        <div draggable="true" class="list-item">3</div>
+        <div draggable="true" class="list-item">4</div>
+        <div draggable="true" class="list-item">5</div>
+        <div draggable="true" class="list-item">6</div>
+    </div>
+    <!-- <script src="flip.js"></script> -->
+    <script>
+        const list = document.querySelector('.list');
+        let sourceNode; 
+        // 事件委托
+        list.ondragstart = function(e){
+            console.log(e);
+            setTimeout(() => {
+                e.target.classList.add('moving');
+                sourceNode = e.target;
+            }, 0)
+        }
+        list.ondragenter = function(e){
+            if (e.target == list || e.target == sourceNode) {
+                return 
+            }
+            const children = Array.from(list.children);
+            const targetIndex = children.indexOf(e.target);
+            const sourceIndex = children.indexOf(sourceNode);
+            if (targetIndex > sourceIndex) {
+                console.log("向下拖动");
+                list.insertBefore(sourceNode, e.target.nextElementSibling);
+            } else {
+                console.log("向上拖动");
+                list.insertBefore(sourceNode, e.target);
+            }
+        }
+        list.ondragend = function(e){
+            console.log('end', e);
+            e.target.classList.remove('moving');
+            sourceNode = null;
+        }
+
+    </script>
+</body>
+</html>
